@@ -284,12 +284,19 @@ role["character_name"] = "Selina Kyle"
 role.save
 
 # Prints a header for the movies output
-# puts "Movies"
-# puts "======"
-# puts ""
+ puts "Movies"
+ puts "======"
+ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
-# TODO!
+for movie in Movie.all
+    title = movie["title"]
+    year = movie["year_released"]
+    rating = movie["mpaa_rating"]
+    studio = Studio.find_by({"id" => movie["studio_id"]})
+    studio_name = studio["name"]
+    puts "#{title} #{year} #{rating} #{studio_name}"
+  end
 
 # Prints a header for the cast output
 # puts ""
